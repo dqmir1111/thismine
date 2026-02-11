@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сервер Minecraft</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0f0f0f;
+            font-family: Arial, sans-serif;
+        }
+
+        .ip {
+            color: #00ff88;
+            font-size: 36px;
+            cursor: pointer;
+            padding: 20px 30px;
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .ip:hover {
+            background: #00ff88;
+            color: #0f0f0f;
+        }
+
+        .copied {
+            position: fixed;
+            bottom: 30px;
+            color: #00ff88;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .copied.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ip" onclick="copyIP()">mc.thismine.fun:25648</div>
+<div id="copied" class="copied">Скопировано!</div>
+
+<script>
+    function copyIP() {
+        const ip = "mc.thismine.fun:25648";
+        navigator.clipboard.writeText(ip);
+
+        const copied = document.getElementById("copied");
+        copied.classList.add("show");
+
+        setTimeout(() => {
+            copied.classList.remove("show");
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>
